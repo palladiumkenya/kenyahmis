@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.kenyahmis</groupId>
+  <artifactId>ozone-kenya</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+
+  <name>Ozone Kenya</name>
+
+  <developers>
+    <developer>
+      <name>Palladium Developers</name>
+    </developer>
+  </developers>
+
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.ozonehis</groupId>
+      <artifactId>ozone</artifactId>
+      <type>zip</type>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <!-- TODO Add KenyaEMR Dependencies -->
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Unpack Ozone zip -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.8</version>
+        <executions>
+          <execution>
+            <id>Unpack Ozone</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <excludeTransitive>true</excludeTransitive>
+              <useBaseVersion>true</useBaseVersion>
+              <outputDirectory>${project.build.directory}/ozone</outputDirectory>
+              <includeArtifactIds>ozone</includeArtifactIds>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <!-- Copy and substitute some helper files (for demo and Gitpod) -->
+            <id>Copy and substitute some helper files</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/.mvn</directory>
+                  <filtering>false</filtering>
+                </resource>
+                <resource>
+                  <directory>${project.basedir}</directory>
+                  <includes>
+                    <include>mvnw</include>
+                    <include>mvnw.cmd</include>
+                  </includes>
+                  <filtering>false</filtering>
+                </resource>
+                <resource>
+                  <directory>${project.basedir}/scripts</directory>
+                  <filtering>false</filtering>
+                </resource>
+                <resource>
+                  <directory>${project.basedir}/scripts</directory>
+                  <includes>
+                    <include>*.sh</include>
+                  </includes>
+                  <excludes>
+                    <exclude>start-ozone.sh</exclude>
+                  </excludes>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <!-- Copy the docker-compose-files.txt file to set the services to run -->
+            <id>Copy docker-compose-files.txt</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}/run/docker/scripts</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/scripts</directory>
+                  <includes>
+                    <include>docker-compose-files.txt</include>
+                    <include>start-ozone.sh</include>
+                  </includes>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <!-- Override with local config files-->
+            <id>Copy local resources</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}/distro/configs</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.parent.basedir}/configs</directory>
+                  <excludes>
+                    <exclude>.gitkeep</exclude>
+                  </excludes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <!-- Exclude files from Ozone -->
+            <id>Exclude some Ozone files</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.build.directory}/ozone</directory>
+                  <excludes>
+                    <exclude>distro/**/addresshierarchy/*.*</exclude>
+                    <exclude>distro/**/appointment*/*.*</exclude>
+                    <exclude>distro/**/attributetypes/*.*</exclude>
+                    <exclude>distro/**/concepts/*.*</exclude>
+                    <exclude>distro/**/drugs*</exclude>
+                    <exclude>distro/**/locations*</exclude>
+                    <exclude>distro/**/ocl*</exclude>
+                    <exclude>distro/**/patientidentifiertypes*</exclude>
+                    <exclude>distro/**/program*</exclude>
+                    <exclude>distro/**/relationshiptypes*</exclude>
+                    <exclude>distro/**/visittypes*</exclude>
+                    <exclude>distro/**/ampathforms/*.json</exclude>
+                    <exclude>distro/**/ampathformstranslations/*.json</exclude>
+                    <exclude>distro/**/globalproperties/i18n.xml</exclude>
+                    <exclude>distro/**/*demo.*</exclude>
+                  </excludes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
+    <repository>
+      <id>mks-nexus-public</id>
+      <url>https://nexus.mekomsolutions.net/repository/maven-public/</url>
+    </repository>
+    <repository>
+      <id>openmrs-repo</id>
+      <name>OpenMRS Nexus Repository</name>
+      <url>https://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
+    </repository>
+    <repository>
+      <id>sonatype-nexus-snapshots</id>
+      <name>Sonatype Nexus Snapshots</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>openmrs-repo</id>
+      <name>OpenMRS Nexus Repository</name>
+      <url>https://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
+      <id>openmrs-snapshots</id>
+      <name>OpenMRS Public Repository</name>
+      <url>https://mavenrepo.openmrs.org/snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </pluginRepository>
+    <pluginRepository>
+      <id>mks-nexus-public</id>
+      <url>https://nexus.mekomsolutions.net/repository/maven-public/</url>
+    </pluginRepository>
+    <pluginRepository>
+      <id>mks-nexus-snapshots</id>
+      <url>https://nexus.mekomsolutions.net/repository/maven-snapshots/</url>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
+  <distributionManagement>
+    <repository>
+      <name>Mekom Solutions Nexus repo for releases</name>
+      <id>mks-repo</id>
+      <url>https://nexus.mekomsolutions.net/repository/maven-releases</url>
+    </repository>
+    <snapshotRepository>
+      <name>Mekom Solutions Nexus repo for snapshots</name>
+      <id>mks-repo-snapshots</id>
+      <url>https://nexus.mekomsolutions.net/repository/maven-snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
+</project>
