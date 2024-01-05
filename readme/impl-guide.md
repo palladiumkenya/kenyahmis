@@ -3,8 +3,8 @@
 This distribution can be run using the Ozone Docker project, which is the default configuration for this. The quick start command below is for demonstration and trial purposes and would not be suitable for a stable environment.
 
 ```
-$ git clone https://github.com/palladiumkenya/ozone-kenyahmis
-$ cd ozone-kenyahmis
+$ git clone https://github.com/palladiumkenya/kenyahmis
+$ cd kenyahmis
 ```
 
 ## Quick Start
