@@ -1,0 +1,26 @@
+Uuid,Name,Start Time	,End Time	
+885b4ad3-fd4c-4a16-8ed3-08813e6b01fa,HIV Consultation,6:00:00,23:00:00
+a96921a1-b89e-4dd2-b6b4-7310f13bbabe,Drug Refill,6:00:00,23:00:00
+b1b75503-5175-433c-a25d-763bc9650ebd,KP Clinical Visit,6:00:00,23:00:00
+372eed95-6493-490a-8891-8374fe566aeb,MCH Antenatal,6:00:00,23:00:00
+dcde8ca4-32a5-4c67-9982-33346e39813f,MCH Postnatal,6:00:00,23:00:00
+e4737031-7e3b-4c63-a929-588613b2c832,Tb Followup,6:00:00,23:00:00
+242f74b9-b0a3-4ba6-9be3-8f57591e3dff,Prep Initial,6:00:00,23:00:00
+6f9b19f6-ac25-41f9-a75c-b8b125dec3da,Prep Followup,6:00:00,23:00:00
+b8c3efd9-e106-4409-ae0e-b9c651484a20,Prep Monthly Refill,6:00:00,23:00:00
+a4a89dfe-62ca-4d52-9e51-b0d835e51f22,Family Planning,6:00:00,23:00:00
+c6ce2119-c084-49c7-aa3f-be9fa1f3863e,Counselling,6:00:00,23:00:00
+61488cf6-fad4-11ed-be56-0242ac120002,Lab tests,6:00:00,23:00:00
+b696161d-3755-4ff0-94a9-91f0148c18ab,CWC Followup,6:00:00,23:00:00
+6f3d7a49-0c4f-4e4d-b6e0-968b8931d1c7,Radiology and Imaging,6:00:00,23:00:00
+a9f821e1-2c8b-45f7-8d6d-5a06d12a879e,Nutritional and Dietary appointment,6:00:00,23:00:00
+c26e1a2d-3b5a-46c1-a0ef-9e17f284a4e6,Cervical cancer Screening,6:00:00,23:00:00
+f0b7b067-aa10-42d2-8c61-06cdd4cbb9d2,Harm/Risk Reduction,6:00:00,23:00:00
+7e95f8cd-ecac-4ab3-a9b7-8925e83c3f18,Psychosocial support appointment,6:00:00,23:00:00
+8e7457f4-70ea-42c0-8aa5-f32d982b8f6f,Vaccination appointments,6:00:00,23:00:00
+4d9db81a-4b0c-4f78-89e9-4b4caecbc22f,Physiotherapy and Rehabilitation appointment,6:00:00,23:00:00
+e0d7f1b3-4db2-4f20-97d3-ae4d2e4a4d5d,Post-operative follow-up,6:00:00,23:00:00
+37d032e3-e721-4d12-aa02-8c48cf1ca1bb,Chemotherapy/ Radiation Therapy appointment,6:00:00,23:00:00
+59f7ea7d-20eb-421b-a0c5-80952dd9ec17,Cancer screening appointment,6:00:00,23:00:00
+d69b6e9d-8792-42fc-87f5-9f68e4d5d0af,Renal Dialysis appointment,6:00:00,23:00:00
+2f8aeb51-6e61-4a36-8f5d-1e6d2897c4e1,Surgery scheduling,6:00:00,23:00:00
