@@ -190,6 +190,7 @@
           <plugin>
             <groupId>org.openmrs.maven.plugins</groupId>
             <artifactId>openmrs-packager-maven-plugin</artifactId>
+            <version>1.7.0</version>
             <executions>
               <execution>
                 <id>validate-configurations</id>
