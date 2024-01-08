@@ -199,7 +199,7 @@
                   <goal>validate-configurations</goal>
                 </goals>
                 <configuration>
-                   <sourceDir>${project.basedir}/configs/initializer_config</sourceDir>
+                   <sourceDir>${project.basedir}/configs/openmrs/initializer_config</sourceDir>
                 </configuration>
               </execution>
             </executions>
