@@ -182,6 +182,32 @@
     </plugins>
   </build>
 
+  <profiles>
+    <profile>
+      <id>validator</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.openmrs.maven.plugins</groupId>
+            <artifactId>openmrs-packager-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>validate-configurations</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>validate-configurations</goal>
+                </goals>
+                <configuration>
+                   <sourceDir>${project.basedir}/configs/initializer_config</sourceDir>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
   <repositories>
     <repository>
       <id>mks-nexus-public</id>
