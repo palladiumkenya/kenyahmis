@@ -1,0 +1,15 @@
+Uuid,Void/Retire,Name,Description,Location,Service
+b47f1e37-9531-467e-ba85-74acbd0c462c',0,Triage service,Triage service,CCC,Triage service
+dc9232d2-c28d-4605-932a-5eb67832f748',0,Clinical consultation,Clinical consultation,CCC,Clinical consultation
+2a576518-375e-4679-bbe5-192ba22851b3',0,Lab service,Lab service,CCC,Lab service
+6b8e31e5-84a2-4345-bfd5-c9113fb3933c',0,Nutrition service,Nutrition service,CCC,Nutrition service
+34b58b4a-1280-47c6-ae41-e5c90029070f',0,Pharmacy service,Pharmacy,CCC,Pharmacy service
+d62c017f-97f8-44fa-955d-4110f688ce36',0,Adherence counselling service,Adherence counselling service,CCC,Adherence counselling service
+a8908458-b50c-4d72-97bf-30341a4f9727',0,Peer educator service,Peer educator service,CCC,Peer educator service
+83750deb-8414-4b2c-abb0-637f275a3a01',0,Triage service,Triage service,MCH,Triage service
+b56cd2d2-b832-4de2-ae73-36aed367838a',0,Clinical consultation,Clinical consultation,MCH,Clinical consultation
+f2058006-94b2-451c-bc4e-cc3e7f223675',0,Lab service,Lab service,MCH,Lab service
+c7aa5da3-7c41-422e-b9f8-05c49cb5b5b7',0,Nutrition service,Nutrition service,MCH,Nutrition service
+20bddf7e-fe31-455b-a51c-93ae1ac32c98',0,Pharmacy service,Pharmacy,MCH,Pharmacy service
+3cf70532-16b4-41ad-a947-c84243824d37',0,Adherence counselling service,Adherence counselling service,MCH,Adherence counselling service
+c3a9fea2-8ea0-4f8e-,0,Peer educator service,Peer educator service,MCH,Peer educator service

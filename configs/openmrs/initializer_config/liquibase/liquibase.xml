@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+
+	<changeSet id="load_all_concepts_${project.version}" author="jecihjoy">
+		<comment>
+			Setup kenyaemr concepts
+		</comment>
+		<sqlFile relativeToChangelogFile="false"
+			path="concept_dictionary/kenyaemr_concepts_dump-september_07_2023.sql" />
+	</changeSet>
+
+	<changeSet id="configure_drugs_${project.version}" author="jecihjoy">
+		<comment>
+			Configure drug definitions
+		</comment>
+		<sqlFile relativeToChangelogFile="true"
+			path="drug/truncate_drugs-10-25.sql" />
+
+		<sqlFile relativeToChangelogFile="true"
+			path="drug/drug_2023-10-25.sql" />
+
+		<sqlFile relativeToChangelogFile="true"
+			path="drug/update_tablet_units.sql" />
+	</changeSet>
+
+</databaseChangeLog>
