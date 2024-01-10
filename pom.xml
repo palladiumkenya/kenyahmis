@@ -177,6 +177,44 @@
               </resources>
             </configuration>
           </execution>
+          <execution>
+            <!-- Exclude files from Ozone -->
+            <id>Exclude some Ozone files</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.build.directory}/ozone</directory>
+                  <excludes>
+                    <exclude>distro/**/addresshierarchy/*.*</exclude>
+                    <exclude>distro/**/appointment*/*.*</exclude>
+                    <exclude>distro/**/attributetypes/*.*</exclude>
+                    <exclude>distro/**/concepts/*.*</exclude>
+                    <exclude>distro/**/drugs*</exclude>
+                    <exclude>distro/**/locations*</exclude>
+                    <exclude>distro/**/locationtags*/</exclude>
+                    <exclude>distro/**/ocl*</exclude>
+                    <exclude>distro/**/patientidentifiertypes*</exclude>
+                    <exclude>distro/**/program*</exclude>
+                    <exclude>distro/**/relationshiptypes*</exclude>
+                    <exclude>distro/**/visittypes*</exclude>
+                    <exclude>distro/**/ampathforms/*.json</exclude>
+                    <exclude>distro/**/ampathformstranslations/*.json</exclude>
+                    <exclude>distro/**/globalproperties/i18n.xml</exclude>
+                    <exclude>distro/**/metadata*/*.*</exclude>
+                    <exclude>distro/**/personattributetypes/*.*</exclude>
+                    <exclude>distro/**/*demo.*</exclude>
+                  </excludes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
     </plugins>
