@@ -157,8 +157,8 @@
             </configuration>
           </execution>
           <execution>
-            <!-- Override with local config files-->
-            <id>Copy local resources</id>
+            <!-- Override with filtered local config files-->
+            <id>Copy local resources with filtering</id>
             <phase>process-resources</phase>
             <goals>
               <goal>copy-resources</goal>
@@ -169,12 +169,16 @@
               <overwrite>true</overwrite>
               <resources>
                 <resource>
-                  <directory>${project.basedir}/configs</directory>
+                  <directory>${project.parent.basedir}/configs</directory>
                   <excludes>
                     <exclude>.gitkeep</exclude>
                   </excludes>
+                  <includes>
+                    <include>openmrs/initializer_config/liquibase/liquibase.xml</include>
+                  </includes>
                 </resource>
               </resources>
+              <filtering>true</filtering>
             </configuration>
           </execution>
           <execution>
