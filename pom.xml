@@ -79,6 +79,7 @@
                     <exclude>distro/**/concepts/*.*</exclude>
                     <exclude>distro/**/drugs*</exclude>
                     <exclude>distro/**/locations*</exclude>
+                    <exclude>distro/**/locationtags*/</exclude>
                     <exclude>distro/**/ocl*</exclude>
                     <exclude>distro/**/patientidentifiertypes*</exclude>
                     <exclude>distro/**/program*</exclude>
@@ -87,6 +88,8 @@
                     <exclude>distro/**/ampathforms/*.json</exclude>
                     <exclude>distro/**/ampathformstranslations/*.json</exclude>
                     <exclude>distro/**/globalproperties/i18n.xml</exclude>
+                    <exclude>distro/**/metadata*/*.*</exclude>
+                    <exclude>distro/**/personattributetypes/*.*</exclude>
                     <exclude>distro/**/*demo.*</exclude>
                   </excludes>
                 </resource>
@@ -157,6 +160,29 @@
             </configuration>
           </execution>
           <execution>
+            <!-- Override with local config files-->
+            <id>Copy local resources</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}/distro/configs
+              </outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/configs</directory>
+                  <excludes>
+                    <exclude>.gitkeep</exclude>
+                    <exclude>openmrs/initializer_config/liquibase/liquibase.xml</exclude>
+                  </excludes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
             <!-- Override with filtered local config files-->
             <id>Copy local resources with filtering</id>
             <phase>process-resources</phase>
@@ -165,58 +191,18 @@
             </goals>
             <configuration>
               <outputDirectory>
-                ${project.build.directory}/${project.artifactId}-${project.version}/distro/configs</outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}/distro/configs
+              </outputDirectory>
               <overwrite>true</overwrite>
               <resources>
                 <resource>
-                  <directory>${project.parent.basedir}/configs</directory>
-                  <excludes>
-                    <exclude>.gitkeep</exclude>
-                  </excludes>
+                  <directory>${project.basedir}/configs</directory>
                   <includes>
                     <include>openmrs/initializer_config/liquibase/liquibase.xml</include>
                   </includes>
                 </resource>
               </resources>
               <filtering>true</filtering>
-            </configuration>
-          </execution>
-          <execution>
-            <!-- Exclude files from Ozone -->
-            <id>Exclude some Ozone files</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>copy-resources</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>
-                ${project.build.directory}/${project.artifactId}-${project.version}</outputDirectory>
-              <overwrite>true</overwrite>
-              <resources>
-                <resource>
-                  <directory>${project.build.directory}/ozone</directory>
-                  <excludes>
-                    <exclude>distro/**/addresshierarchy/*.*</exclude>
-                    <exclude>distro/**/appointment*/*.*</exclude>
-                    <exclude>distro/**/attributetypes/*.*</exclude>
-                    <exclude>distro/**/concepts/*.*</exclude>
-                    <exclude>distro/**/drugs*</exclude>
-                    <exclude>distro/**/locations*</exclude>
-                    <exclude>distro/**/locationtags*/</exclude>
-                    <exclude>distro/**/ocl*</exclude>
-                    <exclude>distro/**/patientidentifiertypes*</exclude>
-                    <exclude>distro/**/program*</exclude>
-                    <exclude>distro/**/relationshiptypes*</exclude>
-                    <exclude>distro/**/visittypes*</exclude>
-                    <exclude>distro/**/ampathforms/*.json</exclude>
-                    <exclude>distro/**/ampathformstranslations/*.json</exclude>
-                    <exclude>distro/**/globalproperties/i18n.xml</exclude>
-                    <exclude>distro/**/metadata*/*.*</exclude>
-                    <exclude>distro/**/personattributetypes/*.*</exclude>
-                    <exclude>distro/**/*demo.*</exclude>
-                  </excludes>
-                </resource>
-              </resources>
             </configuration>
           </execution>
         </executions>
@@ -241,7 +227,7 @@
                   <goal>validate-configurations</goal>
                 </goals>
                 <configuration>
-                   <sourceDir>${project.build.directory}/${project.artifactId}-${project.version}/distro/configs/openmrs/initializer_config</sourceDir>
+                   <sourceDir>${project.basedir}/configs/openmrs/initializer_config</sourceDir>
                 </configuration>
               </execution>
             </executions>
