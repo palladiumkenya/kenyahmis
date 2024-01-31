@@ -6,6 +6,7 @@
   <groupId>org.kenyahmis</groupId>
   <artifactId>ozone-kenya</artifactId>
   <version>1.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
 
   <name>Ozone Kenya</name>
 
@@ -46,7 +47,6 @@
             </goals>
             <configuration>
               <excludeTransitive>true</excludeTransitive>
-              <useBaseVersion>true</useBaseVersion>
               <outputDirectory>${project.build.directory}/ozone</outputDirectory>
               <includeArtifactIds>ozone</includeArtifactIds>
             </configuration>
@@ -79,6 +79,7 @@
                     <exclude>distro/**/concepts/*.*</exclude>
                     <exclude>distro/**/drugs*</exclude>
                     <exclude>distro/**/locations*</exclude>
+                    <exclude>distro/**/locationtags*/</exclude>
                     <exclude>distro/**/ocl*</exclude>
                     <exclude>distro/**/patientidentifiertypes*</exclude>
                     <exclude>distro/**/program*</exclude>
@@ -87,6 +88,8 @@
                     <exclude>distro/**/ampathforms/*.json</exclude>
                     <exclude>distro/**/ampathformstranslations/*.json</exclude>
                     <exclude>distro/**/globalproperties/i18n.xml</exclude>
+                    <exclude>distro/**/metadata*/*.*</exclude>
+                    <exclude>distro/**/personattributetypes/*.*</exclude>
                     <exclude>distro/**/*demo.*</exclude>
                   </excludes>
                 </resource>
@@ -157,7 +160,7 @@
             </configuration>
           </execution>
           <execution>
-            <!-- Override with local config files-->
+            <!-- Override with filtered local config files-->
             <id>Copy local resources</id>
             <phase>process-resources</phase>
             <goals>
@@ -165,7 +168,8 @@
             </goals>
             <configuration>
               <outputDirectory>
-                ${project.build.directory}/${project.artifactId}-${project.version}/distro/configs</outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}/distro/configs
+              </outputDirectory>
               <overwrite>true</overwrite>
               <resources>
                 <resource>
@@ -173,6 +177,33 @@
                   <excludes>
                     <exclude>.gitkeep</exclude>
                   </excludes>
+                  <includes>
+                    <include>openmrs/initializer_config/</include>
+                  </includes>
+                  <filtering>false</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+          <execution>
+            <!-- Override with filtered local config files-->
+            <id>Copy local resources with filtering</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}/distro/configs
+              </outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/configs</directory>
+                  <includes>
+                    <include>openmrs/initializer_config/liquibase/liquibase.xml</include>
+                  </includes>
+                  <filtering>true</filtering>
                 </resource>
               </resources>
             </configuration>

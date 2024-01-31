@@ -1,0 +1,6 @@
+Location,Login Location,Appointment Location,Queue Location
+CCC,TRUE,TRUE,TRUE
+MCH,TRUE,TRUE,TRUE
+Laboratory,TRUE,TRUE,TRUE
+Pharmacy,TRUE,TRUE,TRUE
+HTS,TRUE,TRUE,TRUE
