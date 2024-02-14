@@ -187,6 +187,27 @@
 
   <build>
     <plugins>
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>Rename JAR to OMOD</id>
+            <phase>process-resources</phase>
+            <configuration>
+              <target>
+                <move todir="${project.build.directory}/openmrs_modules">
+                  <fileset dir="${project.build.directory}/openmrs_modules" />
+                  <mapper from="^(.+)-omod-(.+)\.jar" to="\1-\2.omod" type="regexp" />
+                </move>
+              </target>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
       <!-- Unpack Ozone zip -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -201,8 +222,23 @@
             </goals>
             <configuration>
               <excludeTransitive>true</excludeTransitive>
+              <useBaseVersion>true</useBaseVersion>
               <outputDirectory>${project.build.directory}/ozone</outputDirectory>
               <includeArtifactIds>ozone</includeArtifactIds>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>Copy Dependencies</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <excludeTransitive>true</excludeTransitive>
+              <useBaseVersion>true</useBaseVersion>
+              <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/distro/binaries/openmrs/modules</outputDirectory>
+              <includeTypes>omod</includeTypes>
             </configuration>
           </execution>
         </executions>
