@@ -108,7 +108,7 @@
     </dependency>
     <dependency>
      <groupId>org.openmrs.module</groupId>
-      <artifactId>reportingcompatibility-api</artifactId>
+      <artifactId>reportingcompatibility-omod</artifactId>
       <version>${reportingcompatibilityVersion}</version>
     </dependency>
 
@@ -276,6 +276,8 @@
                     <exclude>distro/**/metadata*/*.*</exclude>
                     <exclude>distro/**/personattributetypes/*.*</exclude>
                     <exclude>distro/**/*demo.*</exclude>
+                    <!-- Excluding the Initializer module inherited from Ozone -->
+                    <exclude>distro/binaries/openmrs/modules/initializer-*.omod</exclude>
                   </excludes>
                 </resource>
               </resources>
