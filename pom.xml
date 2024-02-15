@@ -30,7 +30,7 @@
     <facilityReportingVersion>1.2.0</facilityReportingVersion>
     <metadatadeployVersion>1.11.0</metadatadeployVersion>
     <uiframeworkVersion>3.23.0</uiframeworkVersion>
-    <reportingcompatibilityVersion>2.0.</reportingcompatibilityVersion>
+    <reportingcompatibilityVersion>2.0.9</reportingcompatibilityVersion>
     <bahmniAppointmentsVersion>1.6.1</bahmniAppointmentsVersion>
     <kenyaemr.version>18.7.2-SNAPSHOT</kenyaemr.version>
     <kenyaemrcharts.version>1.6.1</kenyaemrcharts.version>
@@ -106,16 +106,11 @@
       <artifactId>uiframework-omod</artifactId>
       <version>${uiframeworkVersion}</version>
     </dependency>
-<!--    <dependency>-->
-<!--      <groupId>org.openmrs.module</groupId>-->
-<!--      <artifactId>spa</artifactId>-->
-<!--      <version>1.0.6</version>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.openmrs.module</groupId>-->
-<!--      <artifactId>reportingcompatibility-api</artifactId>-->
-<!--      <version>${reportingcompatibilityVersion}</version>-->
-<!--    </dependency>-->
+    <dependency>
+     <groupId>org.openmrs.module</groupId>
+      <artifactId>reportingcompatibility-api</artifactId>
+      <version>${reportingcompatibilityVersion}</version>
+    </dependency>
 
 <!--    KenyaEMR Modules-->
     <dependency>
