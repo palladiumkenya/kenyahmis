@@ -20,6 +20,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <appframeworkVersion>2.13.0</appframeworkVersion>
+    <appUiVersion>1.13.0</appUiVersion>
+    <uiCommonsVersion>2.16.0</uiCommonsVersion>
     <groovyVersion>2.2.4</groovyVersion>
     <htmlformentryVersion>5.1.0</htmlformentryVersion>
     <kenyacoreVersion>3.0.1</kenyacoreVersion>
@@ -31,9 +33,8 @@
     <metadatadeployVersion>1.11.0</metadatadeployVersion>
     <uiframeworkVersion>3.23.0</uiframeworkVersion>
     <reportingcompatibilityVersion>2.0.9</reportingcompatibilityVersion>
-    <bahmniAppointmentsVersion>1.6.1</bahmniAppointmentsVersion>
-    <kenyaemr.version>18.7.2-SNAPSHOT</kenyaemr.version>
-    <kenyaemrcharts.version>1.6.1</kenyaemrcharts.version>
+    <kenyaemr.version>18.7.3-SNAPSHOT</kenyaemr.version>
+    <kenyaemrcharts.version>1.6.3-SNAPSHOT</kenyaemrcharts.version>
     <kenyaemrextras.version>1.4.2</kenyaemrextras.version>
     <kenyaemril.version>1.3.0</kenyaemril.version>
     <kenyakeypop.version>1.3.0</kenyakeypop.version>
@@ -42,7 +43,6 @@
     <covid19.version>1.0.4</covid19.version>
     <afyastat.version>1.2.2</afyastat.version>
     <prep.version>1.4.2</prep.version>
-    <initializer.version>2.7.0-SNAPSHOT</initializer.version>
     <vdot.version>1.0.0-SNAPSHOT</vdot.version>
   </properties>
 
@@ -59,6 +59,16 @@
       <groupId>org.openmrs.module</groupId>
       <artifactId>appframework-omod</artifactId>
       <version>${appframeworkVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openmrs.module</groupId>
+      <artifactId>appui-omod</artifactId>
+      <version>${appUiVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openmrs.module</groupId>
+      <artifactId>uicommons-omod</artifactId>
+      <version>${uiCommonsVersion}</version>
     </dependency>
     <dependency>
       <groupId>org.openmrs.module</groupId>
@@ -168,16 +178,6 @@
       <artifactId>prep-omod</artifactId>
       <version>${prep.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.kenyahmis.module</groupId>
-      <artifactId>appointments-omod</artifactId>
-      <version>${bahmniAppointmentsVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.kenyahmis.module</groupId>
-      <artifactId>initializer-omod</artifactId>
-      <version>${initializer.version}</version>
-    </dependency>
   </dependencies>
 
   <build>
@@ -190,7 +190,7 @@
             <phase>process-resources</phase>
             <configuration>
               <target>
-                <move todir="${project.build.directory}/openmrs_modules">
+                <move todir="${project.build.directory}/${project.artifactId}-${project.version}/distro/binaries/openmrs/modules">
                   <fileset dir="${project.build.directory}/openmrs_modules" />
                   <mapper from="^(.+)-omod-(.+)\.jar" to="\1-\2.omod" type="regexp" />
                 </move>
@@ -232,8 +232,8 @@
             <configuration>
               <excludeTransitive>true</excludeTransitive>
               <useBaseVersion>true</useBaseVersion>
-              <outputDirectory>${project.build.directory}/${project.artifactId}-${project.version}/distro/binaries/openmrs/modules</outputDirectory>
-              <includeTypes>omod</includeTypes>
+              <outputDirectory>${project.build.directory}/openmrs_modules</outputDirectory>
+              <includeTypes>omod,jar</includeTypes>
             </configuration>
           </execution>
         </executions>
@@ -276,8 +276,6 @@
                     <exclude>distro/**/metadata*/*.*</exclude>
                     <exclude>distro/**/personattributetypes/*.*</exclude>
                     <exclude>distro/**/*demo.*</exclude>
-                    <!-- Excluding the Initializer module inherited from Ozone -->
-                    <exclude>distro/binaries/openmrs/modules/initializer-*.omod</exclude>
                   </excludes>
                 </resource>
               </resources>
