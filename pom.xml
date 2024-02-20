@@ -19,19 +19,19 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <appframeworkVersion>2.13.0</appframeworkVersion>
-    <appUiVersion>1.13.0</appUiVersion>
-    <uiCommonsVersion>2.16.0</uiCommonsVersion>
-    <groovyVersion>2.2.4</groovyVersion>
-    <htmlformentryVersion>5.1.0</htmlformentryVersion>
+    <appframeworkVersion>2.17.0	</appframeworkVersion>
+    <appUiVersion>1.17.0</appUiVersion>
+    <uiCommonsVersion>2.24.0</uiCommonsVersion>
+    <groovyVersion>2.3.1</groovyVersion>
+    <htmlformentryVersion>5.2.0</htmlformentryVersion>
     <kenyacoreVersion>3.0.1</kenyacoreVersion>
     <kenyadqVersion>1.4.1-SNAPSHOT</kenyadqVersion>
     <kenyauiVersion>3.0.0</kenyauiVersion>
     <kenyaemrOrderentryVersion>1.6.2</kenyaemrOrderentryVersion>
     <logicVersion>0.5.2</logicVersion>
     <facilityReportingVersion>1.2.0</facilityReportingVersion>
-    <metadatadeployVersion>1.11.0</metadatadeployVersion>
-    <uiframeworkVersion>3.23.0</uiframeworkVersion>
+    <metadatadeployVersion>1.13.0</metadatadeployVersion>
+    <uiframeworkVersion>3.24.0</uiframeworkVersion>
     <reportingcompatibilityVersion>2.0.9</reportingcompatibilityVersion>
     <kenyaemr.version>18.7.3-SNAPSHOT</kenyaemr.version>
     <kenyaemrcharts.version>1.6.3-SNAPSHOT</kenyaemrcharts.version>
