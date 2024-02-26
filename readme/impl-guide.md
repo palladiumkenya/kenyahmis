@@ -11,13 +11,13 @@ $ cd kenyahmis
 
 Build
 ```bash
-./mvnw clean package
+./scripts/mvnw clean package
 ```
 
 Run
 ```bash
 source target/go-to-scripts-dir.sh
-./start-ozone.sh
+./start.sh
 ```
 
 ### Working on configurations:
@@ -34,13 +34,13 @@ source target/go-to-scripts-dir.sh
 
 Re-build:
 ```bash
-./mvnw clean package
+./scripts/mvnw  clean package
 ```
 
 Then start afresh:
 ```bash
 source target/go-to-scripts-dir.sh
-./start-ozone.sh
+./start.sh
 ```
 
 #### Option 2. Replace only the files needed, directly in the mounted Docker volume
