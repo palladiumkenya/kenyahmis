@@ -30,7 +30,7 @@
         "@ugandaemr/esm-bed-management-app":"next"
     },
     "__comment": "We exclude all default modules to esnure we are using the specified versions.",
-    "excludedFrontendModules": [
+    "frontendModuleExcludes": [
         "@openmrs/esm-devtools-app",
         "@openmrs/esm-implementer-tools-app",
         "@openmrs/esm-login-app",

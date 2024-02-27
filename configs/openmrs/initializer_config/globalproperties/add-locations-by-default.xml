@@ -1,0 +1,8 @@
+<config>
+  <globalProperties>
+    <globalProperty>
+      <property>kenyaemr.refresh.facility.metadata</property>
+      <value>true</value>
+    </globalProperty>
+  </globalProperties>
+</config>
