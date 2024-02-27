@@ -35,7 +35,7 @@
     <kenyauiVersion>3.0.0</kenyauiVersion>
     <kenyaemrOrderentryVersion>1.6.2</kenyaemrOrderentryVersion>
     <logicVersion>0.5.2</logicVersion>
-    <facilityReportingVersion>1.2.1-SNAPSHOT</facilityReportingVersion>
+    <facilityReportingVersion>1.2.1</facilityReportingVersion>
     <metadatadeployVersion>1.13.0</metadatadeployVersion>
     <uiframeworkVersion>3.24.0</uiframeworkVersion>
     <reportingcompatibilityVersion>2.0.9</reportingcompatibilityVersion>
