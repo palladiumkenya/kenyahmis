@@ -223,6 +223,28 @@
               </resources>
             </configuration>
           </execution>
+
+          <execution>
+            <id>Copy KenyaHMIS-filtered files</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}/distro/configs</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/configs</directory>
+                  <filtering>true</filtering>
+                  <includes>
+                    <include>openmrs/initializer_config/liquibase/liquibase.xml</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
 

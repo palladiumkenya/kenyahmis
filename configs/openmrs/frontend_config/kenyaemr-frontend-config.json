@@ -1,7 +1,7 @@
 {
   "@kenyaemr/esm-login-app": {
     "logo": {
-      "src": "/openmrs/spa/kenyaemr-login-logo.png"
+      "src": "/openmrs/spa/ozone/kenyaemr-login-logo.png"
     },
     "links": {
       "src": "/openmrs/spa/home"
@@ -9,7 +9,7 @@
   },
   "@openmrs/esm-primary-navigation-app": {
     "logo": {
-      "src": "/openmrs/spa/kenyaemr-primary-logo.svg"
+      "src": "/openmrs/spa/ozone/kenyaemr-primary-logo.svg"
     },
     "extensionSlots": {
       "app-menu-slot": {

@@ -9,8 +9,8 @@
 		<comment>
 			Setup kenyaemr concepts
 		</comment>
-		<sqlFile relativeToChangelogFile="false"
-			path="concept_dictionary/kenyaemr_concepts_dump-september_07_2023.sql" />
+		<sqlFile relativeToChangelogFile="true"
+			path="concept_dictionary/kenyaemr_concepts_dump-kenyaemr_facility_wide_updated_concepts_dump_2024_02_06.sql" />
 	</changeSet>
 
 	<changeSet id="configure_drugs_${project.version}" author="jecihjoy">
