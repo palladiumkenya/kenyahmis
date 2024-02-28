@@ -50,6 +50,7 @@
     <afyastat.version>1.2.2</afyastat.version>
     <prep.version>1.4.2</prep.version>
     <vdot.version>1.0.0-SNAPSHOT</vdot.version>
+    <initializer.version>2.7.0-SNAPSHOT</initializer.version>
   </properties>
 
   <dependencies>
@@ -103,7 +104,6 @@
       <groupId>org.openmrs.module</groupId>
       <artifactId>facilityreporting-omod</artifactId>
       <version>${facilityReportingVersion}</version>
-
     </dependency>
     <dependency>
       <groupId>org.openmrs.module</groupId>
@@ -119,6 +119,13 @@
      <groupId>org.openmrs.module</groupId>
       <artifactId>reportingcompatibility-omod</artifactId>
       <version>${reportingcompatibilityVersion}</version>
+    </dependency>
+
+<!-- Temporarily use Initializer with fixed liquibase code -->
+    <dependency>
+     <groupId>org.openmrs.module</groupId>
+      <artifactId>initializer-omod</artifactId>
+      <version>${initializer.version}</version>
     </dependency>
 
 <!--    KenyaEMR Modules-->
@@ -218,6 +225,8 @@
                     <exclude>distro/configs/**/metadata*/*.*</exclude>
                     <exclude>distro/configs/**/personattributetypes/*.*</exclude>
                     <exclude>distro/configs/**/*demo.*</exclude>
+                    <!-- Temporarily remove Ozone -->
+                    <exclude>distro/binaries/openmrs/modules/initializer*.omod</exclude>
                   </excludes>
                 </resource>
               </resources>
