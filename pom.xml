@@ -234,6 +234,27 @@
           </execution>
 
           <execution>
+            <id>Copy KenyaHMIS SQL Scripts</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>
+                ${project.build.directory}/${project.artifactId}-${project.version}/distro/data</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>${project.basedir}/data</directory>
+                  <includes>
+                    <include>**/*.sql</include>
+                  </includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
             <id>Copy KenyaHMIS-filtered files</id>
             <phase>process-resources</phase>
             <goals>
