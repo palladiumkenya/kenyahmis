@@ -17,7 +17,7 @@ Build
 Run
 ```bash
 source target/go-to-scripts-dir.sh
-./start.sh
+./start-demo.sh
 ```
 
 ### Working on configurations:
@@ -40,7 +40,7 @@ Re-build:
 Then start afresh:
 ```bash
 source target/go-to-scripts-dir.sh
-./start.sh
+./start-demo.sh
 ```
 
 #### Option 2. Replace only the files needed, directly in the mounted Docker volume
