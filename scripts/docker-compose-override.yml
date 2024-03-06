@@ -7,3 +7,4 @@ services:
       - "${SQL_SCRIPTS_PATH}/mysql/zz_03_drug_2023-10-25.sql:/docker-entrypoint-initdb.d/zz_03_drug_2023-10-25.sql"
       - "${SQL_SCRIPTS_PATH}/mysql/zz_04_update_tablet_units.sql:/docker-entrypoint-initdb.d/zz_04_update_tablet_units.sql"
       - "${SQL_SCRIPTS_PATH}/mysql/zz_05_skip_liquibase_schema_scripts.sql:/docker-entrypoint-initdb.d/zz_05_skip_liquibase_schema_scripts.sql"
+      - "${SQL_SCRIPTS_PATH}/mysql/zz_06_add_ciel_version_gp.sql:/docker-entrypoint-initdb.d/zz_06_add_ciel_version_gp.sql"
