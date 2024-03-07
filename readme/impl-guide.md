@@ -11,7 +11,7 @@ $ cd kenyahmis
 
 Build
 ```bash
-./mvnw clean package
+./scripts/mvnw clean package
 ```
 
 Run
@@ -34,7 +34,7 @@ source target/go-to-scripts-dir.sh
 
 Re-build:
 ```bash
-./mvnw clean package
+./scripts/mvnw  clean package
 ```
 
 Then start afresh:
