@@ -44,7 +44,7 @@
     <kenyaemrextras.version>1.4.2</kenyaemrextras.version>
     <kenyaemril.version>1.3.0</kenyaemril.version>
     <kenyakeypop.version>1.3.0</kenyakeypop.version>
-    <kenyaemrml.version>1.3.6</kenyaemrml.version>
+    <kenyaemrml.version>1.3.6-SNAPSHOT</kenyaemrml.version>
     <hivtestingservices.version>1.5.1</hivtestingservices.version>
     <covid19.version>1.0.4</covid19.version>
     <afyastat.version>1.2.2</afyastat.version>
