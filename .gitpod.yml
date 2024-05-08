@@ -1,8 +1,8 @@
 tasks:
   - name: Run Ozone Kenya
     before: sudo apt-get update && sudo apt-get install -y gettext-base && sudo rm -rf /var/lib/apt/lists/*
-    init: ./mvnw clean package
-    command: source target/go-to-scripts-dir.sh && ./start-ozone.sh
+    init: ./scripts/mvnw clean package
+    command: source target/go-to-scripts-dir.sh && ./start.sh
 ports:
   - name: OpenMRS
     description: OpenMRS 3
